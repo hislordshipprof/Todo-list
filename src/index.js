@@ -4,11 +4,11 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 
-import { 
-  Info, displayTodo, createTodoInfo, updateTodos
+import {
+  Info, displayTodo, createTodoInfo, updateTodos,
 } from './create-update-remove.js';
 import {
-  updateTodo, clearCompletedTodo
+  updateTodo, clearCompletedTodo,
 } from './todostatus';
 import './styles.css';
 
@@ -39,7 +39,7 @@ TodoListContainer.addEventListener('click', (e) => {
 });
 
 TodoListContainer.addEventListener('click', (e) => {
-  const clicked = e.target.closest(".check-box");
+  const clicked = e.target.closest('.check-box');
   if (!clicked) return;
 
   updateTodo(+clicked.dataset.ind);
