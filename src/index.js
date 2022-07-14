@@ -4,8 +4,8 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 
-import { Info, displayTodo, createTodoInfo,
- updateTodos } from './create-update-remove.js';
+import { Info, displayTodo, createTodoInfo, updateTodos
+} from './create-update-remove.js';
 import { updateTodo, clearCompletedTodo
 } from './todostatus';
 import './styles.css';
