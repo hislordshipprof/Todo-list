@@ -9,7 +9,7 @@ beforeAll(() => {
   global.Storage.prototype.getItem = jest.fn((key) => initialTodoInfo[key]);
 });
 
-beforEach(() => {
+beforeEach(() => {
   initialTodoInfo = {
     todos: JSON.stringify([]),
   };
@@ -23,7 +23,7 @@ afterAll(() => {
 
 describe('addTodoItem()', () => {
   it('add a todo item to local storage', () => {
-    const todo = { description: "test",completed: false, index: 0 };
+    const todo = { description: 'test', completed: false, index: 0 };
     Info.addTodoItem(todo);
     expect(JSON.parse(initialTodoInfo.todos)).toEqual([todo]);
   });
@@ -32,7 +32,7 @@ describe('addTodoItem()', () => {
 describe('deleteTodo()', () => {
   it('remove a todo item from local storage', () => {
     const index = 0;
-    const todo = { description: "test", completed: false, index };
+    const todo = { description: 'test', completed: false, index };
     Info.addTodoItem(todo);
     Info.deleteTodo(index);
     expect(JSON.parse(initialTodoInfo.todos)).toEqual([]);

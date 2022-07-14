@@ -2,19 +2,15 @@ export class Info {
   // get todo items from local storage
   static getTodos = () => JSON.parse(localStorage.getItem('todos')) || [];
 
- 
   static addTodoItem = (todo) => {
     const todos = this.getTodos();
     todos.push(todo);
-
     localStorage.setItem('todos', JSON.stringify(todos));
   };
 
- 
   static updateTodos = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   };
-
 
   static updateIndex = (todos) => {
     let indexedTodo = [];
@@ -24,7 +20,6 @@ export class Info {
     });
     return indexedTodo;
   };
-
 
   static deleteTodo = (ind) => {
     const todos = this.getTodos();
