@@ -60,7 +60,7 @@ button {
 }
 
 h1 {
-  font-size: 14px;
+  font-size: 15px;
   color: #545862;
 }
 
@@ -80,14 +80,14 @@ h1 {
   }
 }
 
-.add-item {
+.add-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-right: 6px;
 }
 
-.add-item .icon-enter {
+.add-info.icon-enter {
   cursor: pointer;
 }
 
@@ -180,13 +180,13 @@ h1 {
   margin-right: 10px;
 }
 
-.clear {
+.clearTodo {
   background-color: #f0f0f0;
   border-bottom: none;
   justify-content: center;
 }
 
-.clear p {
+.clearTodo p {
   color: #000;
   opacity: 0.5;
   font-size: 14px;
@@ -194,7 +194,7 @@ h1 {
   transition: all ease-in-out 150ms;
 }
 
-.clear p:hover {
+.clearTodo p:hover {
   text-decoration: underline;
   opacity: 1;
 }

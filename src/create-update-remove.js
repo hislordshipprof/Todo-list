@@ -1,16 +1,12 @@
-class Store {
+export class Info {
   // get todo items from local storage
   static getTodos = () => JSON.parse(localStorage.getItem('todos')) || [];
 
-  // add todo item to local storage
-  static addTodo = (todo) => {
+  static addTodoItem = (todo) => {
     const todos = this.getTodos();
     todos.push(todo);
-
     localStorage.setItem('todos', JSON.stringify(todos));
   };
-
-  // update todos
 
   static updateTodos = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -25,7 +21,6 @@ class Store {
     return indexedTodo;
   };
 
-  // remove todo item from local storage
   static deleteTodo = (ind) => {
     const todos = this.getTodos();
     const newTodos = todos.filter((todo) => todo.index !== ind);
@@ -34,10 +29,10 @@ class Store {
   };
 }
 
-const listContainer = document.querySelector('.list-container');
+const TodoListContainer = document.querySelector('.list-container');
 const displayTodo = () => {
-  listContainer.innerHTML = '';
-  const todos = Store.getTodos();
+  TodoListContainer.innerHTML = ' ';
+  const todos = Info.getTodos();
   todos.forEach(({ description, completed, index }) => {
     const listItem = document.createElement('div');
     listItem.className = `row list-item list-item-${index}`;
@@ -46,7 +41,7 @@ const displayTodo = () => {
       <span class="icon-check" data-completed="${completed}"></span>
       <i class="fa-solid fa-check" data-completed="${completed}"></i>
     </button>
-    <input class="todo-item" type="text" data-todo="${index}" data-completed="${completed}" value=${description} />
+    <input class="todo-item" type="text" data-todo="${index}" data-completed="${completed}" value='${description}' />
     <button class="delete" data-del="${index}"><i class="fa-solid fa-trash-can" ></i></button>
     <svg
       width="25px"
@@ -62,25 +57,24 @@ const displayTodo = () => {
     </svg>
   `;
 
-    listContainer.appendChild(listItem);
+    TodoListContainer.appendChild(listItem);
   });
 };
 
-const createTodo = () => {
+const createTodoInfo = () => {
   // get todo description
   const description = document.querySelector('#new-todo').value;
-
   if (!description) return;
 
   // create new todo object
   const todo = {
     description: `${description}`,
     completed: false,
-    index: Store.getTodos().length,
+    index: Info.getTodos().length,
   };
 
   // add new todo to local storage
-  Store.addTodo(todo);
+  Info.addTodoItem(todo);
 
   // add new todo to UI
   displayTodo();
@@ -88,15 +82,13 @@ const createTodo = () => {
 
 const updateTodos = (el) => {
   el.addEventListener('keyup', () => {
-    const todos = Store.getTodos();
-    const todoNum = el.dataset.todo;
+    const todos = Info.getTodos();
+    const todoNum = +el.dataset.todo;
     const todo = todos.find((todo) => todo.index === todoNum);
     todo.description = el.value.trim();
 
-    Store.updateTodos(todos);
+    Info.updateTodos(todos);
   });
 };
 
-export {
-  Store, displayTodo, createTodo, updateTodos,
-};
+export { displayTodo, createTodoInfo, updateTodos };
