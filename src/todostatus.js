@@ -1,4 +1,4 @@
-import { Info, displayTodo } from "./create-update-remove.js";
+import { Info, displayTodo } from './create-update-remove.js';
 
 const updateTodo = (ind) => {
   const todos = Info.getTodos();
