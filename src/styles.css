@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,100&display=swap');
 
 * {
   padding: 0;
@@ -8,7 +8,7 @@
 body {
   background-color: #f6f6f6;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (min-width: 768px) {
@@ -30,13 +30,10 @@ button {
   display: none;
 }
 
-.test {
-  border: solid red 1px;
-}
-
 .container {
   background-color: #fff;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)), drop-shadow(0 2px 3px rgb(0 0 0 / 0.1));
+  filter:
+    drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 .container .row {
@@ -80,14 +77,14 @@ h1 {
   }
 }
 
-.add-item {
+.add-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-right: 6px;
 }
 
-.add-item .icon-enter {
+.add-info .icon-enter {
   cursor: pointer;
 }
 
@@ -104,7 +101,7 @@ h1 {
   transition: all ease-in 200ms;
 }
 
-.todo-item[data-completed="true"] {
+.todo-item[data-completed='true'] {
   text-decoration: line-through;
   opacity: 0.5;
 }
@@ -133,11 +130,11 @@ h1 {
   display: none;
 }
 
-.icon-check[data-completed="false"] {
+.icon-check[data-completed='false'] {
   display: block;
 }
 
-.fa-check[data-completed="true"] {
+.fa-check[data-completed='true'] {
   display: block;
 }
 
@@ -180,13 +177,13 @@ h1 {
   margin-right: 10px;
 }
 
-.clear {
+.clearTodo {
   background-color: #f0f0f0;
   border-bottom: none;
   justify-content: center;
 }
 
-.clear p {
+.clearTodo p {
   color: #000;
   opacity: 0.5;
   font-size: 14px;
@@ -194,7 +191,7 @@ h1 {
   transition: all ease-in-out 150ms;
 }
 
-.clear p:hover {
+.clearTodo p:hover {
   text-decoration: underline;
   opacity: 1;
 }

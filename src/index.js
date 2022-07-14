@@ -1,47 +1,47 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
-import '@fortawesome/fontawesome-free/js/fontawesome';
-import '@fortawesome/fontawesome-free/js/solid';
-import '@fortawesome/fontawesome-free/js/regular';
+import "@fortawesome/fontawesome-free/js/fontawesome";
+import "@fortawesome/fontawesome-free/js/solid";
+import "@fortawesome/fontawesome-free/js/regular";
 
-import {
-  Store, displayTodo, createTodo, updateTodos,
-} from './crudOps.js';
-import { updateStatus, clearCompleted } from './status';
-import './styles.css';
+import { Info, displayTodo, createTodoInfo, updateTodos } from "./create-update-remove.js";
+import { updateStatus, clearCompletedTodo } from "./todostatus";
+import "./styles.css";
 
-const form = document.getElementById('form');
-const listContainer = document.querySelector('.list-container');
-const clear = document.querySelector('.clear');
+const form = document.getElementById("form");
+const TodoListContainer = document.querySelector(".list-container");
+const clearTodo = document.querySelector(".clearTodo");
 
-window.addEventListener('load', displayTodo);
 
-form.addEventListener('submit', (e) => {
+window.addEventListener("load", displayTodo);
+
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  createTodo();
+  createTodoInfo();
 });
 
-// Event: delete todo
-listContainer.addEventListener('click', (e) => {
-  const clicked = e.target.closest('.delete');
+
+TodoListContainer.addEventListener("click", (e) => {
+  const clicked = e.target.closest(".delete");
   if (!clicked) return;
 
-  Store.deleteTodo(+clicked.dataset.del);
+  Info.deleteTodo(+clicked.dataset.del);
   displayTodo();
 });
 
-listContainer.addEventListener('click', (e) => {
-  const clicked = e.target.closest('.todo-item');
+TodoListContainer.addEventListener("click", (e) => {
+  const clicked = e.target.closest(".todo-item");
   if (!clicked) return;
 
   updateTodos(clicked);
 });
 
-listContainer.addEventListener('click', (e) => {
-  const clicked = e.target.closest('.check-box');
+TodoListContainer.addEventListener("click", (e) => {
+  const clicked = e.target.closest(".check-box");
   if (!clicked) return;
 
   updateStatus(+clicked.dataset.ind);
 });
 
-clear.addEventListener('click', clearCompleted);
+clearTodo.addEventListener("click", clearCompletedTodo);
