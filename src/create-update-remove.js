@@ -31,7 +31,7 @@ export class Info {
 
 const TodoListContainer = document.querySelector(".list-container");
 const displayTodo = () => {
-  TodoListContainer.innerHTML = "";
+  TodoListContainer.innerHTML = ' ';
   const todos = Info.getTodos();
   todos.forEach(({ description, completed, index }) => {
     const listItem = document.createElement("div");
