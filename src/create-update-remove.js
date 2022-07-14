@@ -29,12 +29,12 @@ export class Info {
   };
 }
 
-const TodoListContainer = document.querySelector(".list-container");
+const TodoListContainer = document.querySelector('.list-container');
 const displayTodo = () => {
   TodoListContainer.innerHTML = ' ';
   const todos = Info.getTodos();
   todos.forEach(({ description, completed, index }) => {
-    const listItem = document.createElement("div");
+    const listItem = document.createElement('div');
     listItem.className = `row list-item list-item-${index}`;
     listItem.innerHTML = `
     <button class="check-box" data-ind="${index}">
@@ -63,7 +63,7 @@ const displayTodo = () => {
 
 const createTodoInfo = () => {
   // get todo description
-  const description = document.querySelector("#new-todo").value;
+  const description = document.querySelector('#new-todo').value;
   if (!description) return;
 
   // create new todo object
