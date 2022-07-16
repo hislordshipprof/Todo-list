@@ -1,5 +1,5 @@
-import { Info, updateTodos } from './create-update-remove';
-import { updateTodo, clearCompletedTodo } from './todostatus';
+import { Info, updateTodos } from './create-update-remove.js';
+import { updateTodo, clearCompletedTodo } from './todostatus.js';
 
 describe('updateTodos()', () => {
   beforeEach(() => {
