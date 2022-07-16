@@ -80,15 +80,12 @@ const createTodoInfo = () => {
   displayTodo();
 };
 
-const updateTodos = (el) => {
-  el.addEventListener('keyup', () => {
+const updateTodos = (todoIndex, description) => {
     const todos = Info.getTodos();
-    const todoNum = +el.dataset.todo;
-    const todo = todos.find((todo) => todo.index === todoNum);
-    todo.description = el.value.trim();
-
+    const todo = todos.find((todo) => todo.index === todoIndex);
+    todo.description = description;
     Info.updateTodos(todos);
-  });
+  
 };
 
 export { displayTodo, createTodoInfo, updateTodos };
